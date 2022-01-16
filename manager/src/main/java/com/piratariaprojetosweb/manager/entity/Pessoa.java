@@ -2,25 +2,20 @@ package com.piratariaprojetosweb.manager.entity;
 
 import java.io.Serializable;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Table;
-import javax.validation.constraints.NotEmpty;
+import javax.persistence.MappedSuperclass;
+import javax.persistence.OneToOne;
 
-@Entity
-@Table(name = "tb_cliente")
-public class Cliente extends Pessoa implements Serializable {
+@MappedSuperclass
+public class Pessoa implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-
-	@NotEmpty(message = "Campo nome obrigatório")
 	private String nome;
+	@OneToOne
+	private Contato contato;
 
 	public Long getId() {
 		return id;
@@ -37,4 +32,13 @@ public class Cliente extends Pessoa implements Serializable {
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
+
+	public Contato getContato() {
+		return contato;
+	}
+
+	public void setContato(Contato contato) {
+		this.contato = contato;
+	}
+
 }

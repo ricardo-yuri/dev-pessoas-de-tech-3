@@ -6,21 +6,16 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Table;
-import javax.validation.constraints.NotEmpty;
 
-@Entity
-@Table(name = "tb_cliente")
-public class Cliente extends Pessoa implements Serializable {
+@Entity(name = "tb_funcionario")
+public class Funcionario extends Pessoa implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-
-	@NotEmpty(message = "Campo nome obrigatório")
-	private String nome;
+	private String cargo; // TODO CRIAR ENUM CARGO
 
 	public Long getId() {
 		return id;
@@ -30,11 +25,12 @@ public class Cliente extends Pessoa implements Serializable {
 		this.id = id;
 	}
 
-	public String getNome() {
-		return nome;
+	public String getCargo() {
+		return cargo;
 	}
 
-	public void setNome(String nome) {
-		this.nome = nome;
+	public void setCargo(String cargo) {
+		this.cargo = cargo;
 	}
+
 }
