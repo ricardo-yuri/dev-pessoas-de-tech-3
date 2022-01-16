@@ -1,10 +1,7 @@
 package com.piratariaprojetosweb.manager.entity;
 
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
 
-import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -20,10 +17,8 @@ public class Contato implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	@ElementCollection(targetClass = String.class)
-	private List<String> telefone = new ArrayList<>();
-	@ElementCollection(targetClass = String.class)
-	private List<String> email = new ArrayList<String>();
+	private String telefone;
+	private String email;
 
 	public Long getId() {
 		return id;
@@ -33,19 +28,19 @@ public class Contato implements Serializable {
 		this.id = id;
 	}
 
-	public List<String> getTelefone() {
+	public String getTelefone() {
 		return telefone;
 	}
 
-	public void setTelefone(List<String> telefone) {
+	public void setTelefone(String telefone) {
 		this.telefone = telefone;
 	}
 
-	public List<String> getEmail() {
+	public String getEmail() {
 		return email;
 	}
 
-	public void setEmail(List<String> email) {
+	public void setEmail(String email) {
 		this.email = email;
 	}
 
