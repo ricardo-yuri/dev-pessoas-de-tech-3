@@ -22,6 +22,12 @@ public class Cliente extends Pessoa implements Serializable {
 	@NotEmpty(message = "Campo nome obrigatório")
 	private String nome;
 
+	private String site;
+
+	private String cnpj;
+
+	private String logo;
+
 	public Long getId() {
 		return id;
 	}
@@ -37,4 +43,29 @@ public class Cliente extends Pessoa implements Serializable {
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
+
+	public String getSite() {
+		return site;
+	}
+
+	public void setSite(String site) {
+		this.site = site;
+	}
+
+	public String getCnpj() {
+		return cnpj;
+	}
+
+	public void setCnpj(String cnpj) {
+		this.cnpj = cnpj;
+	}
+
+	public String getLogo() {
+		return logo;
+	}
+
+	public void setLogo(String logo) {
+		this.logo = logo;
+	}
+
 }
