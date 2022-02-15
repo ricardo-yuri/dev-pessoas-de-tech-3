@@ -13,18 +13,18 @@ import com.piratariaprojetosweb.manager.entity.Cliente;
 import com.piratariaprojetosweb.manager.service.ClienteService;
 
 @RestController
-@RequestMapping(value = "/clientes")
+@RequestMapping(value = "/cliente")
 public class ClienteController {
 	
 	@Autowired
 	private ClienteService clienteService;
 	
-	@GetMapping
-	List<Cliente> buscarCliente(){
-		return clienteService.buscarClientes();
+	@GetMapping("/listar")
+	List<Cliente> findAll(){
+		return clienteService.findAll();
 	}
 	
-	@PostMapping
+	@PostMapping("/cadastrar")
 	void cadastrarCliente(@RequestBody Cliente cli) {
 		clienteService.cadastrarCliente(cli);
 	}

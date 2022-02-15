@@ -21,12 +21,12 @@ public class FuncionarioController {
 	@Autowired
 	FuncionarioService service;
 
-	@GetMapping("/list")
+	@GetMapping("/listar")
 	ResponseEntity<List<Funcionario>> findAll() {
 		return ResponseEntity.ok(service.findAll());
 	}
 
-	@PostMapping("/salvar")
+	@PostMapping("/cadastrar")
 	ResponseEntity<Funcionario> createFuncionario(@RequestBody Funcionario funcionario) {
 		return ResponseEntity.ok(service.createFuncionario(funcionario));
 	}
